@@ -1,0 +1,123 @@
+/* Page layout */
+.home {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Blurred background image */
+.background {
+  position: absolute;
+  inset: 0;
+  background: url('/background.jpg') no-repeat center center / cover;
+  filter: blur(5px);
+  z-index: 0;
+}
+
+/* Content layer above background */
+header,
+.home-content,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Centered main content */
+.home-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: white;
+}
+
+/* Title, subtitle, spacing */
+.home-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.home-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Learn More text */
+.learn-more {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.learn-more p {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+/* Pill-style button */
+.learn-button {
+  display: inline-block;
+  padding: 1.5rem 4rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.learn-button:hover {
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+  transform: scale(1.05);
+}
+
+/* Highlight word ("your") animation */
+.highlight-word {
+  display: inline-block;
+  transition: all 0.3s ease;
+  font-style: italic;
+}
+
+.highlight-word:hover {
+  color: black;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.3rem;
+  transform: scale(1.2) rotate(0.5deg);
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%   { transform: scale(1.2) translateX(0); }
+  25%  { transform: scale(1.2) translateX(-2px); }
+  50%  { transform: scale(1.2) translateX(2px); }
+  75%  { transform: scale(1.2) translateX(-1px); }
+  100% { transform: scale(1.2) translateX(0); }
+}
+
+/* Fade-in effect */
+.fade-in {
+  animation: fadeIn 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
