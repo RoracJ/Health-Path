@@ -1,0 +1,160 @@
+/* Page layout */
+.home {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Blurred background image */
+.background {
+  position: absolute;
+  inset: 0;
+  background: url('/background.jpg') no-repeat center center / cover;
+  filter: blur(5px);
+  z-index: 0;
+}
+
+/* Content layer above background */
+header,
+.home-content,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Centered main content */
+.home-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: white;
+}
+
+/* Title, subtitle, spacing */
+.home-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.home-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Learn More text */
+.learn-more {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.learn-more p {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+/* Pill-style ENTER button */
+.learn-button {
+  position: relative;
+  display: inline-block;
+  padding: 0.4rem 3.2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  animation: pulse 2.5s infinite ease-in-out;
+  z-index: 1;
+}
+
+.learn-button:hover {
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+  transform: scale(1.07);
+  text-decoration: none; /* ✅ no underline on hover */
+}
+
+/* Ripple circle on hover */
+.learn-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.learn-button:hover::after {
+  transform: translate(-50%, -50%) scale(15);
+  opacity: 0;
+}
+
+/* Animated "your" word */
+.highlight-word {
+  display: inline-block;
+  transition: all 0.3s ease;
+  font-style: italic;
+  text-decoration: none;
+}
+
+.highlight-word:hover {
+  color: black;
+  transform: scale(1.2) rotate(0.5deg);
+  animation: shake 0.4s ease;
+}
+
+/* Shake animation */
+@keyframes shake {
+  0%   { transform: scale(1.2) translateX(0); }
+  25%  { transform: scale(1.2) translateX(-2px); }
+  50%  { transform: scale(1.2) translateX(2px); }
+  75%  { transform: scale(1.2) translateX(-1px); }
+  100% { transform: scale(1.2) translateX(0); }
+}
+
+/* Fade-in effect */
+.fade-in {
+  animation: fadeIn 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
