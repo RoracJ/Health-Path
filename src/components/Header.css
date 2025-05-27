@@ -89,10 +89,10 @@
   }
 
   .nav-links {
-    margin-top: 1rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row; /* ✅ keep inline even on mobile */
     gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
   }
 }
+
